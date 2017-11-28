@@ -1,0 +1,72 @@
+.single-banner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:30vh;
+    overflow: hidden;
+    background:url('/img/singlebanner.jpg') no-repeat;
+    background-position: center bottom;
+}
+
+.banner-head{
+    height:20vh;
+}
+
+.main-product{
+    padding:3rem;
+    padding-left:4rem;
+    padding-right:4rem;
+    min-height:80vh;
+}
+
+.single-price{
+    font-family:sans-serif;
+    font-size:2rem;
+}
+
+.rating{
+    i{
+        color:$red;
+        font-size:1.5rem;
+    }
+}
+.slick-slide{
+    border:solid .2rem transparent;
+    &:focus{
+       border:solid .2rem $red;
+    }
+}
+
+.add-to-cart{
+    background:$red;
+    cursor:pointer;
+}
+
+.xactive{
+    border:solid .2rem $red !important;
+}
+
+.xzoom-thumbs img{
+    height:8vh;
+    margin: auto;
+}
+
+.xzoom-div{
+    padding-left:10vw;
+}
+
+.nav-pills a.nav-link{
+    color:$matte;
+}
+
+.nav-pills a.nav-link.active{
+    background:$blue !important;
+    color:$light;
+}
+
+
+#my-awesome-dropzone	{
+    .dz-progress{
+        display:none;
+    }
+}

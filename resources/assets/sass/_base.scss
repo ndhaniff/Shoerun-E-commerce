@@ -1,0 +1,171 @@
+.main-nav{
+    background:none;    
+    position: relative;
+    z-index:100;
+    a{
+        color:$light;
+    }
+}
+ 
+.slider{
+    height:70vh;
+}
+
+.shop-slider{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:70vh;
+    border:bottom;
+    img{
+        position:relative;
+        object-fit: contain;
+    }
+}
+.slick-dots{
+    bottom:3vh;
+    li button:before{
+        font-size:1rem;
+        color:$light;
+    }
+    li.slick-active button:before{
+        color:$red;
+    }
+}
+
+.slide1{
+    padding-top:10vh;
+    background:lighten($red,15);
+    img{
+        width: 60%;
+    }
+}
+
+.slide2{
+    padding-top:10vh;
+    background:lighten($blue,15);
+    img{
+        width: 80%;
+    }
+    .slide-content{
+        button{
+            background:lighten($red,15);
+            color:$light;
+            a{
+                color:$light;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.slide-content{
+    padding-left:20vw;
+    border-top-right-radius:25px;
+    border-bottom-right-radius:25px;
+    h3{
+        color:$light;
+        font-size:2.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    p{
+        color:$light;
+        text-transform: uppercase;
+    }
+    button{
+        background:$blue;
+        color:$light;
+        a{
+            color:$light;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+input,select{
+    border-radius:0 !important;
+    vertical-align: middle;
+}
+
+
+input::placeholder{
+    font-style: italic;
+}
+
+.btn-red{
+    float:right;
+    position: absolute;
+    top: 0;
+    left: 80%;
+    padding:.35rem;
+    background:$red;
+    border-radius: 0;
+    vertical-align: middle;
+        a{color:$light;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}
+
+.sidebar{
+    min-height:80vh;
+    ul{
+        padding-left: 3px;
+    }
+    li{
+        list-style:none;
+        a{
+            &:hover{
+                color:$red !important;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.shop-content{
+    list-style: none;
+    li{
+        border:5px solid darken($light,10);
+        transition: linear .1s;
+        &:hover{
+            transform: scale(1.1);
+            border:$blue .2rem solid;
+            z-index:100;
+            .btn-add-to-cart{
+                left:30%;
+                position:absolute;
+                display:block;
+                background:$red;
+                color:$light;
+            }
+        }
+    }
+}
+
+.btn-add-to-cart{
+    display:none;
+}
+
+.product{
+    a:hover{
+        text-decoration: none;
+    }
+}
+
+.product-name{
+    p{
+        margin-top:1rem;
+        line-height: 2vh;
+    }
+    .price{
+        font-size:1.5rem;
+    }
+}
