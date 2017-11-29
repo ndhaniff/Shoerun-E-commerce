@@ -9729,12 +9729,28 @@ body {
           box-sizing: border-box;
 }
 
+.min-h {
+  min-height: 60vh;
+}
+
 .bg-fff {
   background: #fff;
 }
 
+.bg-blue {
+  background: #092e4b;
+}
+
+.bg-gray {
+  background: #d2d1d1;
+}
+
 .bg-light {
   background: #ebebeb;
+}
+
+.text-serif {
+  font-family: sans-serif !important;
 }
 
 .text-gray {
@@ -9756,6 +9772,14 @@ body {
 
 .bold {
   font-weight: 700;
+}
+
+.border-blue {
+  border: solid 0.3rem #092e4b;
+}
+
+.border-gray {
+  border: solid 0.3rem #8d8d8d;
 }
 
 .main-nav {
@@ -10030,5 +10054,132 @@ input::placeholder {
 
 #my-awesome-dropzone .dz-progress {
   display: none;
+}
+
+.product-img {
+  height: 180px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  html {
+    font-size: 10px;
+  }
+
+  .navbar-header {
+    margin: auto !important;
+  }
+
+  .shop-slider {
+    height: 40vh;
+    overflow: hidden;
+  }
+
+  .slider {
+    height: 35vh;
+  }
+
+  .searchform {
+    text-align: center;
+  }
+
+  select[name="sorting"] {
+    display: none;
+  }
+
+  .results {
+    text-align: center !important;
+  }
+
+  .sidebar {
+    text-align: center !important;
+  }
+
+  .sidebar h5 {
+    font-size: 2rem !important;
+  }
+
+  .sidebar ul li a {
+    font-size: 1.6rem !important;
+  }
+
+  .product-img img {
+    width: 50vw;
+    height: 25vh;
+  }
+
+  .shop-content {
+    margin: 0;
+    padding: 0 !important;
+  }
+
+  .shop-content li {
+    border: none;
+  }
+
+  .product-list {
+    padding: 0;
+  }
+
+  .banner-head {
+    height: 6vh;
+    overflow: hidden !important;
+  }
+
+  .single-banner {
+    height: 15vh;
+  }
+
+  .xzoom-div {
+    padding: 0;
+  }
+
+  .product-detail {
+    text-align: center !important;
+  }
+
+  .tab-content {
+    padding: 0 !important;
+    padding-top: 5vh !important;
+  }
+
+  .cart-nav {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .cart-nav i {
+    font-size: 3rem;
+  }
+
+  .cart-body {
+    padding: 1rem !important;
+    padding-top: 1.5rem !important;
+  }
+
+  .cart-body h3 {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  html {
+    font-size: 12px;
+  }
+
+  .slider {
+    height: 80vh;
+  }
+
+  .product-img {
+    height: 150px;
+  }
+
+  .shop-content li {
+    width: 100vw;
+  }
+
+  select[name="sorting"] {
+    display: none;
+  }
 }
 

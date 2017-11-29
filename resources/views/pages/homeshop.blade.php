@@ -1,14 +1,18 @@
 @section('head')
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.css')}}"/>
     <link rel="stylesheet" href="{{asset('css/slick-theme.css')}}">
+    <style>
+        .main-nav{
+            background:#092e4b !important;
+        }
+    </style>
 @endsection
 
 @extends('layouts.app')
 
 @section('content')
-    @include('inc.homeslider')
 
-    <div class="container">
+    <div class="container p-5">
         <div class="row">
             <div class="col-md-3 pl-0">
                 <form class="searchform" action="/search" method="get">
@@ -30,20 +34,23 @@
             @include('inc.sidebar')
             <div class="product-list col-md-9 pr-0">
                 <ul class="shop-content row pt-3 pl-3 ">
+                @if(count($products) > 0)
                 @foreach($products as $product)
                     <li class="col-md-4 product bg-fff p-5 text-center">
                             <a href="/products/single/{{$product->id}}">
                                 <div class="product-img">
                                     <img width="100%" src="/storage/productimg/{{$product->gallery->first()->name}}" alt="">
                                 </div>
-                                <div class="product-name">
+                                <span class="product-name">
                                 <p class="text-matte bold">{{$product->product_name}}</p>
                                 <p class="text-blue text-serif bold price">RM {{$product->price}}</p>
-                                </div>
+                                </span>
                                 <a href="/products/single/{{$product->id}}"><span class="btn btn-add-to-cart">View Product</span></a>
                             </a>
                     </li>
                 @endforeach
+                @else <p>No Product</p>
+                @endif
                 </ul>
 
                 <div class="modal" tabindex="-1" role="dialog">
@@ -100,5 +107,6 @@
                 $('.modal').modal('show');
             },3000);
         });
+
     </script>
 @endsection

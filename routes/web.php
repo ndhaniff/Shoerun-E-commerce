@@ -12,13 +12,26 @@
 */
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'PagesController@index');
+Route::get('/search', 'PagesController@search');
 
 Route::resource('products','ProductsController');
 Route::post('/products/save',['as' => 'products.save', 'uses' => 'ProductsController@save']);
 Route::get('/products/single/{id}',['as' => 'products.single', 'uses' => 'ProductsController@show']);
+
+Route::post('/cart/create',['as' => 'cart.create', 'uses' => 'CartController@create']);
+Route::get('/cart','CartController@index');
+Route::get('/cart/remove/{rowId}','CartController@remove');
+
+Route::get('/checkout', function(){
+    $carts = Cart::content();
+    $subtotal = Cart::total();
+
+    return view('products.checkout')->
+    with('carts',$carts)->with('subtotal',$subtotal);
+});
+
+Route::post('/order/create', 'OrdersController@create');
 
 Auth::routes();
 

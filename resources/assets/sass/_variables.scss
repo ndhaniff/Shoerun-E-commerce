@@ -56,12 +56,28 @@ body{
     box-sizing: border-box;
 }
 
+.min-h{
+    min-height:60vh;
+}
+
 .bg-fff{
     background:#fff;
 }
 
+.bg-blue{
+    background:$blue;
+}
+
+.bg-gray{
+    background:#d2d1d1;
+}
+
 .bg-light{
     background:$light;
+}
+
+.text-serif{
+    font-family:sans-serif !important;
 }
 
 .text-gray{
@@ -82,4 +98,12 @@ body{
 }
 .bold{
     font-weight:700;
+}
+
+.border-blue{
+    border:solid .3rem $blue;
+}
+
+.border-gray{
+    border:solid .3rem $gray;
 }

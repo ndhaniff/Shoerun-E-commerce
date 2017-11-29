@@ -7,7 +7,7 @@
 @include('inc.banner')
     <div class="main-product container-fluid bg-light">
         <div class="row">
-            <div class="col-md-6">
+            <div class="product-gallery col-md-6">
                 <div class="xzoom-div"> 
                     <div class="m-auto">
                         <img class="xzoom" width="100%" src="/storage/productimg/{{$product->gallery->first()->name}}" xoriginal="/storage/productimg/{{$product->gallery->first()->name}}" />
@@ -22,7 +22,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6 text-left">
+            <div class="product-detail col-md-6 text-left">
                 <h3 class="text-matte bold">{{$product->product_name}}</h3>
                 <span class="rating">
                 <i class="text-red ion-ios-star"></i>
@@ -41,30 +41,34 @@
                 </p>
 
                 <div class="specification">
-                    <div class="row">
+                    <form id="productspec" action="/cart/post" class="row">
                         <div class="col-md-4">
                             <label class="text-gray bold" for="">SIZE</label>
-                            <select class="form-control mb-2" name="" id="">
+                            <select class="form-control mb-2" name="size" id="">
                                     @foreach(explode(',', $product->size) as $size) 
                                         <option value="{{$size}}">{{$size}}</option>
                                     @endforeach
                             </select>
                         <label class="text-gray bold" for="">QUANTITY</label>
-                            <input value="1" type="number" min="1" max="999" class="form-control">
+                            <input name="qty" value="1" type="number" min="1" max="999" class="form-control">
+                            <input name="pid" type="hidden" value="{{$product->id}}">
+                            <input name="carturl" type="hidden" value="{{route('cart.create')}}">
                         </div>
                         <div class="col-md-6">
                             <label class="text-gray bold" for="">COLOR</label>
-                            <select class="form-control" name="" id="">
+                            <select class="form-control" name="color" id="">
                                 @foreach(explode(',', $product->color) as $color) 
                                     <option value="{{$color}}">{{$color}}</option>
                                 @endforeach
                             </select>
 
                         </div>
-                        </div>
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="col-md-12 mt-4">
-                            <button class="btn add-to-cart text-light"><i class="ion-bag"></i>&nbsp;ADD TO CART</button>
+                            <button type="submit" class="btn add-to-cart text-light">
+                            <i class="ion-bag"></i>&nbsp;ADD TO CART</button>
                         </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -98,6 +102,34 @@
             lensShape: 'circle',
             scroll: true,
             });
-    });
+        });
+
+        $('#productspec').on('submit',function(e){
+            e.preventDefault();
+            var url = $('input[name="carturl"]').val();
+            var form = this;
+            var formdata = new FormData(form);
+            console.log(formdata);
+
+            for (var [key, value] of formdata.entries()) { 
+                console.log(key, value);
+                }
+
+            $.ajax({
+                url : url,
+                type : 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data : formdata,
+                contentType: false,
+                processData: false,
+                success: function(response){
+                    setTimeout(function(){// wait for 5 secs(2)
+                        location.reload(); // then reload the page.(3)
+                    }, 300); 
+                },
+            });
+        });
     </script>
 @endsection

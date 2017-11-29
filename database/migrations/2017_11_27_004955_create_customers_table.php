@@ -19,6 +19,7 @@ class CreateCustomersTable extends Migration
             $table->string('last_name');
             $table->decimal('phone');
             $table->string('email',191)->unique();
+            $table->string('city');
             $table->string('shipping_address');
             $table->decimal('shipping_poscode');
             $table->string('shipping_state');
